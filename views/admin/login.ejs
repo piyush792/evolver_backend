@@ -1,0 +1,54 @@
+<% layout('layouts/login') %>
+    <div class='login_body'>
+        <div class="wrap" style="height: 400px; text-align: center;">
+            <!-- <h2>Evolver AI</h2> -->
+            <img style="width: 120px; height: auto; margin-left:30px;" src="/images/brand-logo.png">
+            <h3>Welcome to the login page</h3>
+            <% console.log(params); if(params=='null' ){ %>
+                <% }else{ %>
+                    <div class="alert alert-warning">
+                        <%= params %>
+                    </div>
+                    <% } %>
+                        <form role="form" method="post" action="auth">
+                            <div class="login">
+                                <div class="email">
+                                    <label for="username">Email</label>
+                                    <div class="email-input">
+                                        <div class="input-prepend"><span class="add-on"><i
+                                                    class="icon-user"></i></span><input class="form-control"
+                                                placeholder="username" name="username" type="username" autofocus>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pw">
+                                    <label for="password">Password</label>
+                                    <div class="pw-input">
+                                        <div class="input-prepend"><span class="add-on"><i
+                                                    class="icon-lock"></i></span><input class="form-control"
+                                                placeholder="Password" name="password" type="password" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pw">
+                                    <label for="password">User Type</label>
+                                    <div class="pw-input">
+                                        <div class="input-prepend">
+                                            <select name="user_type" class="form-control" style=" width:200px;">
+                                                <option value='admin'>Admin</option>
+                                                <option value='vendor'>User</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                            </div>
+                            <div class="submit">
+                                <div align="right" style="margin-right:20px;">
+                                    <input type="submit" class="btn btn-red5" value="Login">
+                                </div>
+                            </div>
+                        </form>
+
+        </div>
+    </div>

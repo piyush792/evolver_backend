@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%=typeof title=='undefined' ? 'Administrative Panel for IMFIT' : title%>
+    </title>
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--STYLES-->
+    <!-- Bootstrap Core CSS -->
+    <link href="/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="/admin/vendor/bootstrap/css/bootstrap.css" rel="stylesheet"> carousel is working when enable the css -->
+    <link href="/admin/vendor/bootstrap/css/bootstrap.datepicker.css" rel="stylesheet">
+    <link href="/admin/vendor/bootstrap/css/bootstrap-datetimepicker.min.js">
+
+    <!-- our internal css -->
+    <!-- <link href="/admin/vendor/style.css" rel="stylesheet"> -->
+    <link href="/admin/vendor/vendor-module.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="/admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Morris Charts CSS -->
+    <!-- <link href="/admin/vendor/morrisjs/morris.css" rel="stylesheet"> -->
+    <!-- <link href="https://cdn.datatables.net/select/1.2.4/css/select.bootstrap4.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href=" https://cdn.datatables.net/select/1.2.4/css/select.dataTables.min.css" rel="stylesheet"
+        type="text/css"> -->
+    <!-- <link href=" https://cdn.datatables.net/buttons/1.5.0/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+
+
+    <script type="text/javascript" language="javascript" src="/admin/vendor/bootstrap/js/jquery.js">
+    </script>
+    <script type="text/javascript" language="javascript" src="/admin/vendor/bootstrap/js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript" language="javascript" src="/admin/vendor/bootstrap/js/bootstrap.datepicker.js">
+    </script>
+    <script type="text/javascript" language="javascript" src="/admin/vendor/bootstrap/js/custom.js">
+    </script>
+
+    <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript"
+        src=" https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- <script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.12.4.js">
+    </script> -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+
+    <!-- <script type="text/javascript" language="javascript"
+        src=" https://cdn.datatables.net/select/1.2.4/js/dataTables.select.min.js"></script> -->
+    <!-- <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/buttons/1.5.0/js/dataTables.buttons.min.js"></script> -->
+
+    <!--STYLES END-->
+    <!-- <script type="text/javascript" language="javascript" src="/admin/js/bootstrap-typeahead.js">
+    </script>
+    <script type="text/javascript" language="javascript" src="/admin/js/bootstrap-typeahead.min.js">
+    </script> -->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <!--<div class="row">
+          <img src="/images/AlphaMeld Logo.png" height="126" width="226"></div>-->
+
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button> -->
+
+                <a href="/admin/auth" class="brand-logo"><img src="/images/brand-logo.png"></a>
+                <!-- <a style="position: absolute;" class="navbar-brand" href="/admin/auth">Admin Panel </a> -->
+            </div>
+
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Welcome <%=typeof datatitle=='undefined' ? '' : datatitle%>
+                            <i class="fa fa-user fa-fw"></i>
+                            <i class="fa fa-caret-down"></i>
+                    </a>
+                </li>
+                <!-- <ul class="dropdown-menu dropdown-user"></ul> -->
+                <li><a href="/admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- /.navbar-top-links -->
+
+        <!-- left navigation link -->
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <% if (usertype=="admin" ) { %>
+                        <li><a href="/admin/auth"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+                        <!-- <li><a href="/admin/categories/index"><i class="fa fa-table fa-fw"></i>Categories</a></li> -->
+                        <li><a href="/admin/users/index"><i class="fa fa-table fa-fw"></i>User</a></li>
+                        <!-- <li><a href="/admin/products/index"><i class="fa fa-table fa-fw"></i>Brands</a></li> -->
+                        <!-- <li><a href="/admin/sellers/index"><i class="fa fa-table fa-fw"></i>Sellers</a></li> -->
+
+                        <% } else { %>
+                            <li><a href="/admin/auth"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+                            <% } %>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- end left navigation link-->
+        <!-- /.navbar-static-side -->
+
+
+        <!--TEMPLATES-->
+        <%- body %>
+            <!--TEMPLATES END-->
+    </div>
+    <!-- /#wrapper -->
+
+    <!--SCRIPTS-->
+    <!-- jQuery -->
+
+    <!--SCRIPTS END-->
+    <script type="text/javascript" class="init">
+
+        $(document).ready(function () {
+            var eventFired = function (type) {
+                var n = $('#demo_info')[0];
+                n.innerHTML += '<div>' + type + ' event - ' + new Date().getTime() + '</div>';
+                n.scrollTop = n.scrollHeight;
+            }
+            var table = $('#user_table').DataTable();
+            table.on('search.dt', function () {
+                $('#filterInfo').html('Currently applied global search: ' + table.search());
+            });
+        });
+
+        function ValidateFileUpload() {
+            // alert("aaaaaaa");
+            var fuData = document.getElementById('file');
+            var FileUploadPath = fuData.value;
+
+            //To check if user upload any file
+            if (FileUploadPath == '') {
+                alert("Please upload an image");
+
+            } else {
+                var Extension = FileUploadPath.substring(
+                    FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+
+                //The file uploaded is an image
+
+                if (Extension == "gif" || Extension == "png" || Extension == "bmp"
+                    || Extension == "jpeg" || Extension == "jpg") {
+
+                    // To Display
+                    if (fuData.files && fuData.files[0]) {
+                        // var reader = new FileReader();
+
+                        /* reader.onload = function(e) {
+                            // $('#blah').attr('src', e.target.result);
+                         }*/
+                        //document.imageform.submit();
+                        document.getElementById("imageform").submit();
+
+
+                        // reader.readAsDataURL(fuData.files[0]);
+
+                    }
+                    //   
+                }
+
+                //The file upload is NOT an image
+                else {
+                    alert("Photo only allows file types of GIF, PNG, JPG, JPEG and BMP. ");
+
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
