@@ -11,16 +11,15 @@ node(){
         }
         
     }
-    // stage('Build') {
-    //     nodejs('nodejs') {
-    //         sh 'npm run build'
-    //         echo "Build completed"
-    //     }
-        
-    // }
+    stage('Build') {
+        nodejs('nodejs') {
+            sh 'npm run build'
+            echo "Build completed"
+        }        
+    }
 
     stage('Package Build') {
-        sh "tar -zcvf bundle.tar.gz backend/"
+        sh "tar -zcvf bundle.tar.gz dist/backend/"
     } 
  
     stage('Artifacts Creation') {
